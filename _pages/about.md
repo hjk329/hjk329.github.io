@@ -1,7 +1,7 @@
 ---
 permalink: /about/
 title: "About"
-excerpt: "This is Hyungji K"
+excerpt: "Hiya"
 layouts_gallery:
   - url: /assets/images/mm-layout-splash.png
     image_path: /assets/images/mm-layout-splash.png
