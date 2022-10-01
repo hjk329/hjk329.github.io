@@ -127,7 +127,7 @@ author:
       url: "https://github.com/hjk329"
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: "https://www.instagram.com/from.hjk"
 
 # Site Footer
 footer:
@@ -140,7 +140,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url:https://github.com/hjk329
+      url: "https://github.com/hjk329"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
@@ -149,7 +149,7 @@ footer:
       # url:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
-      url:https://www.instagram.com/from.hjk/
+      url: "https://www.instagram.com/from.hjk"
 
 
 # Reading Files
