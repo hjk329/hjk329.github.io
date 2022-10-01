@@ -2,6 +2,9 @@
 main:
   - title: "About"
     url: https:/hjk329.github.io/about
+
+  - title: "Blog"
+    url: https:/hjk329.github.io/blog
   # - title: "About"
   #   url: https://mmistakes.github.io/minimal-mistakes/about/
   # - title: "Sample Posts"
