@@ -76,11 +76,15 @@
   a {
     padding-right: 10px;
     font-weight: bold;
-  }
+    }
 
   .social-icons {
     a {
       white-space: nowrap;
+
+      i {
+        color: #fff;
+      }
     }
   }
 }

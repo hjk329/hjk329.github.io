@@ -105,8 +105,8 @@ analytics:
 # Site Author
 author:
   name             : "Hyungji K"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Bubbly :)"
+  avatar           : "/assets/images/avatar.jpeg"
+  bio              : "Software Engineer"
   location         : "Seoul"
   email            :
   links:
@@ -287,6 +287,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: false
-      comments: # true
+      comments: true
       share: false
       related: false
