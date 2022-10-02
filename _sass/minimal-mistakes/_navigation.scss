@@ -51,6 +51,9 @@
      ========================================================================== */
 
 .pagination {
+  width: 50%!important;
+  display: flex;
+  gap: 10px;
   @include clearfix();
   float: left;
   margin-top: 1em;
@@ -119,32 +122,24 @@
 
   /* next/previous buttons */
   &--pager {
-    display: block;
-    padding: 1em 2em;
+    width: 156px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F5E080;
+
+    font-size: 14px;
     float: left;
     width: 50%;
     font-family: $sans-serif;
-    font-size: $type-size-5;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: $muted-text-color;
-    border: 1px solid mix(#000, $border-color, 25%);
-    border-radius: $border-radius;
+    border-radius: 12px;
 
     &:hover {
-      @include yiq-contrasted($muted-text-color);
-    }
-
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      margin-left: -1px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+      color: #fff;
     }
 
     &.disabled {
