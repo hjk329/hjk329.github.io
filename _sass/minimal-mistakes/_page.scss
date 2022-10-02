@@ -69,6 +69,7 @@ body {
 }
 
 .page__title {
+  font-size: 24px;
   margin-top: 0;
   line-height: 1;
 
@@ -80,6 +81,10 @@ body {
   & + .page__meta {
     margin-top: -0.5em;
   }
+}
+
+.page__content {
+  font-size: 18px;
 }
 
 .page__lead {
@@ -304,7 +309,7 @@ body {
   font-size: $type-size-6;
 
   p {
-    margin: 0;
+    margin-bottom: -30px;
   }
 
   a {
@@ -324,6 +329,12 @@ body {
   padding-right: 0.5em;
 }
 
+.page__date {
+  strong, time {
+    font-size: 12px;
+  }
+}
+
 /*
    Page taxonomy
    ========================================================================== */
@@ -335,6 +346,7 @@ body {
 
   strong {
     margin-right: 10px;
+    font-size: 12px;
   }
 }
 
@@ -344,8 +356,11 @@ body {
   margin-bottom: 8px;
   padding: 5px 10px;
   text-decoration: none;
-  border: 1px solid mix(#000, $border-color, 25%);
+  // border: 1px solid mix(#000, $border-color, 25%);
+  border: none;
   border-radius: $border-radius;
+
+  font-size: 12px;
 
   &:hover {
     text-decoration: none;

@@ -44,7 +44,7 @@
   max-height: 2rem;
 }
 
-.site-title {
+.site-title {    
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,6 +86,8 @@
   display: block;
   list-style-type: none;
   white-space: nowrap;
+
+  font-size: 18px;
 
   &--lg {
     padding-right: 2em;

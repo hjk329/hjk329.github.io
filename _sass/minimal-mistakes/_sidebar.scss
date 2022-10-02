@@ -145,6 +145,7 @@
 }
 
 .author__content {
+
   display: table-cell;
   vertical-align: top;
   padding-left: 15px;
@@ -184,9 +185,18 @@
     margin-top: 10px;
     margin-bottom: 20px;
   }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 }
 
 .author__urls-wrapper {
+
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
+
   position: relative;
   display: table-cell;
   vertical-align: middle;
