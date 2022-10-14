@@ -61,7 +61,7 @@ atom_feed:
   hide                   : # true, false (default)
 search                   : # true, false (default)
 search_full_content      : # true, false (default)
-search_provider          : # lunr (default), algolia, google
+search_provider          : "google"
 lunr:
   search_within_pages    : # true, false (default)
 algolia:
@@ -96,9 +96,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : false # false (default), "google", "google-universal", "google-gtag", "custom"
+  provider               : "google-gtag" # false (default), "google", "google-universal", "google-gtag", "custom"
   google:
-    tracking_id          :
+    tracking_id          : "G-LW45C95NGV"
     anonymize_ip         : # true, false (default)
 
 
@@ -108,7 +108,7 @@ author:
   avatar           : "/assets/images/avatar.jpeg"
   bio              : "Software Engineer"
   location         : "Seoul"
-  email            :
+  email            : 
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
