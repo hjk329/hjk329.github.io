@@ -9,6 +9,9 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "사용자 수에 따른 규모 확장성"
+
+published : false
+
 ---
 
 가상 면접 사례로 배우는 대규모 시스템 설계 기초 (알렉스 쉬 지음, 이병준 옮김, 인사이트) 중 1장 사용자 수에 따른 규모 확장성 을 읽고 정리한 내용입니다. 
