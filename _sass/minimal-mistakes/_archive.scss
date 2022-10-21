@@ -75,6 +75,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
+  margin-bottom: 4px;
   font-size: 12px;
 
   & + p {
@@ -128,7 +129,7 @@
 .list__item {
   .page__meta {
     margin: 0 0 4px;
-    font-size: 0.6em;
+    font-size: 12px;
   }
 }
 
