@@ -1,13 +1,12 @@
 ---
 title:  "[코어 웹 바이탈 최적화]LCP 최적화하기"
 categories: 
-  - 리팩토링
   - 최적화
-  - 코어 웹 바이탈
 tags:
   - 리팩토링
   - 최적화
   - 코어 웹 바이탈
+  - Core Web Vitals
 toc: true
 toc_sticky: true
 toc_label: "LCP 최적화하기"

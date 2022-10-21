@@ -1,12 +1,12 @@
 ---
 title:  "[코어 웹 바이탈 최적화] 코어 웹 바이탈이란?"
 categories: 
-  - 리팩토링
   - 최적화
-  - 코어 웹 바이탈
 tags:
   - 리팩토링
   - 최적화
+  - 코어 웹 바이탈
+  - Core Web Vitals
 toc: true
 toc_sticky: true
 toc_label: "코어 웹 바이탈이란?"
