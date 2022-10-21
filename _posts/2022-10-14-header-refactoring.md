@@ -4,7 +4,6 @@ categories:
   - React
 tags:
   - React.memo
-  - 리액트 메모
   - 리렌더링 방지
   - 리팩토링
 toc: true

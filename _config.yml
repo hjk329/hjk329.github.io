@@ -104,7 +104,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Hyungji K"
+  name             : "Hyungji"
   avatar           : "/assets/images/avatar.jpeg"
   bio              : "Software Engineer"
   location         : "Seoul"
@@ -115,7 +115,7 @@ author:
       url: "mailto:icthelight@naver.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
-      url: "https://hjk329.github.io"
+      # url: "https://hjk329.github.io"
     - label: "Twitter"
       icon: "fab fa-fw fa-twitter-square"
       # url: "https://twitter.com/"
@@ -290,3 +290,5 @@ defaults:
       comments: true
       share: true
       related: false
+      # sidebar: 
+      #   nav: "docs"
