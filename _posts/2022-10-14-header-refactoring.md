@@ -2,11 +2,11 @@
 title:  "스크롤값에 따라 계속해서 리렌더링되는 헤더 컴포넌트 리팩토링하기"
 categories: 
   - React
-  - 리액트
 tags:
   - React.memo
   - 리액트 메모
   - 리렌더링 방지
+  - 리팩토링
 toc: true
 toc_sticky: true
 toc_label: "헤더 컴포넌트 리팩토링"

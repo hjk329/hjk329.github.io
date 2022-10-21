@@ -6,7 +6,6 @@ tags:
   - 리팩토링
   - 최적화
   - 코어 웹 바이탈
-  - Core Web Vitals
 toc: true
 toc_sticky: true
 toc_label: "LCP 최적화하기"
