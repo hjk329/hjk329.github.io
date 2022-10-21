@@ -288,5 +288,5 @@ defaults:
       author_profile: true
       read_time: false
       comments: true
-      share: false
+      share: true
       related: false

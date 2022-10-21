@@ -73,11 +73,11 @@ body {
   font-size: 36px;
   margin-top: 1em;
   margin-bottom: 2em;
-  line-height: 1;
 
   a {
     color: $text-color;
     text-decoration: none;
+    line-height: 30px;
   }
 
   & + .page__meta {
@@ -137,6 +137,9 @@ body {
   }
 
   a:not(.btn) {
+    color: #84A2BB;
+    text-decoration: underline;
+
     &:hover {
       text-decoration: underline;
 
@@ -150,7 +153,8 @@ body {
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     font-size: 0.8em;
-    background: $code-background-color;
+    // background: $code-background-color;
+    background: #d1d1d1;
     border-radius: $border-radius;
 
     &::before,
@@ -300,6 +304,12 @@ body {
   text-transform: uppercase;
 }
 
+// share 버튼 스타일링
+.btn {
+  border-radius: 12px;
+  font-size: 12px;
+}
+
 /*
    Page meta
    ========================================================================== */
@@ -311,7 +321,10 @@ body {
   font-size: $type-size-6;
 
   p {
-    margin-bottom: -30px;
+    margin-bottom: 8px;
+    &.page__date {
+      margin-bottom: 0;
+    }
   }
 
   a {
@@ -354,13 +367,11 @@ body {
 
 .page__taxonomy-item {
   display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 8px;
-  padding: 5px 10px;
+  margin-right: 4px;
+  padding: 0 6px;
   text-decoration: none;
-  // border: 1px solid mix(#000, $border-color, 25%);
-  border: none;
-  border-radius: $border-radius;
+  border: 1px solid mix(#000, $border-color, 25%);
+  border-radius: 6px;
 
   font-size: 12px;
 

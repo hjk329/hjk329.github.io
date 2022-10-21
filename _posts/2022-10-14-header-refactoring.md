@@ -8,6 +8,8 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "헤더 컴포넌트 리팩토링"
+share: true
+
 ---
 
 

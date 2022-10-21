@@ -10,6 +10,8 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "코어 웹 바이탈이란?"
+share: true
+
 ---
 
 사내 프로젝트는 구글 서치 콘솔 서비스를 이용하고 있다. <br>
