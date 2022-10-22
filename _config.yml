@@ -292,3 +292,7 @@ defaults:
       related: false
       # sidebar: 
       #   nav: "docs"
+
+# 사이드바에 카테고리랑 태그 추가하기!
+category_dir: categories/
+tag_dir: tags/

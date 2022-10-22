@@ -8,6 +8,48 @@
 
 .sidebar {
 
+// 커스텀 카테고리
+
+.sidebar__categories{
+  .sidebar-nav-item {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+ .content-ul {
+  margin-top: 12px;
+  a {
+    display: block;
+    font-weight: 400;
+    .name {
+
+    }
+    .badge {
+      font-weight: 600;
+    }
+  }
+
+}
+
+}
+
+.sidebar__tags {
+  display: block;
+  max-width: 160px;
+  .sidebar-nav-item {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tags__cloud {
+  display: block;
+}
+}
+
+
+
+
+
   @include clearfix();
   // @include breakpoint(max-width $large) {
   //   /* fix z-index order of follow links */
@@ -369,5 +411,6 @@
     width: initial;
     margin-right: initial;
   }
+
 }
 
