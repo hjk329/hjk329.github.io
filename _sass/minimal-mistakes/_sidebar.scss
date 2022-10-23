@@ -18,6 +18,10 @@
 
  .content-ul {
   margin-top: 12px;
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+  }
   
   a {
     display: block;
@@ -34,6 +38,10 @@
 .sidebar__tags {
   display: block;
   max-width: 160px;
+
+  @media screen and (max-width: 1024px) {
+    max-width: unset;
+  }
 
   .sidebar-nav-item {
     font-size: 12px;
