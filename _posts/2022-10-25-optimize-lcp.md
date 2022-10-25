@@ -37,5 +37,6 @@ LCP 향상을 위해 활용한 전략은 아래와 같다.
  
 라이트 하우스의 성능 점수는 각 지표별로 가중치가 있는데 LCP는 가중치가 꽤 큰 메트릭이라서 여기에서 낮은 점수를 받으니 전체적인 성능에서도 낮은 점수를 받을 수 있다. <br>
  
-{% raw %}{% include gallery id="gallery" caption="This is a second gallery example with images hosted externally." %}{% endraw %} 
+{% include gallery id="gallery" caption="왼쪽: LCP 개선 이전, 오른쪽: LCP 개선 후" %}
+
  
