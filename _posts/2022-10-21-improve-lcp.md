@@ -1,5 +1,5 @@
 ---
-title:  "[코어 웹 바이탈 최적화]LCP 최적화하기"
+title:  "[코어 웹 바이탈 최적화] LCP 최적화하기"
 categories: 
   - 최적화
 tags:
