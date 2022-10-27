@@ -57,3 +57,7 @@ TBT는 FCP(First Contentful Paint, 최초 콘텐츠풀 페인트)와 TTI(Time to
 <br>
 
 코드 분할 이외에도 중요 경로 또는 스크롤 없이 볼 수 있는 콘텐츠에 필요하지 않은 스크립트에는 항상 async 또는 defer를 사용한다.
+
+-----
+
+참고: [최초 입력 지연 최적화](https://web.dev/i18n/ko/optimize-fid/)
