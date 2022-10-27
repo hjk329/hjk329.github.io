@@ -6,6 +6,7 @@ tags:
   - 리팩토링
   - 최적화
   - 코어 웹 바이탈
+  - LCP
 toc: true
 toc_sticky: true
 toc_label: "프로젝트에서 LCP 개선하기"
