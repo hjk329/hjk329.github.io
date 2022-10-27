@@ -6,6 +6,7 @@ tags:
   - 리팩토링
   - 최적화
   - 코어 웹 바이탈
+  - FID
 toc: true
 toc_sticky: true
 toc_label: "FID란?"
