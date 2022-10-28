@@ -39,7 +39,7 @@ import styled from 'styled-components';
 const RatioBox = ({
   children, width, height, contain,
 }) => (
-  <Container style={{ paddingTop: `${height / width * 100}%` }}>
+  <Container style={{ paddingTop: `${height/width*100}%` }}>
     <Inner>
       {children}
     </Inner>
