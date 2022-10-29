@@ -12,7 +12,7 @@ toc_sticky: true
 toc_label: "FID 개선하기"
 share: true
 
-gallery:
+gallery1:
   - url: /assets/images/FID-by-extension-2022-10-29.png
     image_path: /assets/images/FID-by-extension-2022-10-29.png
     alt: 'fid-before'
@@ -20,7 +20,7 @@ gallery:
     image_path: /assets/images/FID-improved-by-extension-2022-10-29.png
     alt: 'fid-improved'
     
-gallery1:
+gallery2:
   - url: /assets/images/mp4-download-2022-10-29.png
     image_path: /assets/images/mp4-download-2022-10-29.png
     alt: 'mp4'
@@ -79,7 +79,7 @@ web.dev 도큐먼트에서 추천하는 방법대로 webp 이미지를 사용해
 
 FID 메트릭에도 유의미한 변화가 있었다.
 
-{% include gallery id="gallery" caption="왼쪽: FID 개선 이전, 오른쪽: FID 개선 후" %}
+{% include gallery id="gallery1" caption="왼쪽: FID 개선 이전, 오른쪽: FID 개선 후" %}
 
 
 ### 최적화된 비디오를 제공하자
@@ -105,7 +105,7 @@ mp4로는 25.6MB 이었던 용량이 webm으로 변환했을때는 2.7MB밖에 �
 
 또한, 크롭 개발자 도구의 네트워크 패널에서 콘텐츠 다운로드 시간만 보더라도 차이가 어마어마했다. <br>
 
-{% include gallery1 id="gallery" caption="왼쪽: MP4 파일의 콘텐츠 다운로드 시간, 오른쪽: WEBM 파일의 콘텐츠 다운로드 시간" %}
+{% include gallery id="gallery2" caption="왼쪽: MP4 파일의 콘텐츠 다운로드 시간, 오른쪽: WEBM 파일의 콘텐츠 다운로드 시간" %}
 
 s 단위가 ms 단위로 바뀌었다. <br>
 
