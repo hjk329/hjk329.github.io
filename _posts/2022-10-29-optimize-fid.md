@@ -20,7 +20,7 @@ gallery:
     image_path: /assets/images/FID-improved-by-extension-2022-10-29.png
     alt: 'fid-improved'
     
-gallery2:
+gallery1:
   - url: /assets/images/mp4-download-2022-10-29.png
     image_path: /assets/images/mp4-download-2022-10-29.png
     alt: 'mp4'
