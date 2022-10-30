@@ -1,5 +1,5 @@
 ---
-title:  "[코어 웹 바이탈 최적화] FID를 개선해보자!"
+title:  "[코어 웹 바이탈 최적화] 프로젝트에서 FID 개선하기"
 categories: 
   - 최적화
 tags:
@@ -39,14 +39,13 @@ FID를 개선하는 일은 꽤나 까다롭게 느껴졌다. <br>
 그렇다면 FID를 개선할 수 있는 다른 방법은 무엇이 있을까 고민하다가 FID가 TBT와 관련이 있다는 것이 생각났다 <br>
 TBT(Total Blocking Time, 총 차단 시간) 메트릭은 코어 웹 바이탈에 포함되는 메트릭은 아니지만, 메인 스레드가 입력 응답을 막는 시간과 관련있기 때문에 이를 개선하면 FID도 자연스레 개선할 수 있을 것이라 생각했다. <br>
 
-> TBT에 대한 자세한 내용은 여기를 참고해주세요! [Total Blocking Time(총 차단 시간, TBT)](https://web.dev/tbt/)
+TBT에 대한 자세한 내용은 여기를 참고해주세요! 
+> [Total Blocking Time(총 차단 시간, TBT)](https://web.dev/tbt/)
 
-<br>
 
 우선 우리 프로젝트의 TBT는 아래와 같다. <br> <br>
 ![tbt](/assets/images/tbt-as-is-2022-10-29.png)
 
-<br><br>
 총 차단 시간이 330ms로 좋은 TBT 점수로 평가되는 300ms를 조금 넘었다. <br>
 
 
@@ -64,13 +63,12 @@ TBT(Total Blocking Time, 총 차단 시간) 메트릭은 코어 웹 바이탈에
 
 web.dev 도큐먼트에서 추천하는 방법대로 webp 이미지를 사용해보기로 했다! <br>
 
-> 자세한 내용은 여기에서 확인하세요!
-[WebP 이미지 사용](https://web.dev/serve-images-webp/)
+자세한 내용은 여기에서 확인하세요!
+>[WebP 이미지 사용](https://web.dev/serve-images-webp/)
 
-같은 이미지인데도 webp로 변환한 파일은 그 용량이 고작 9.4KB밖에 되지 않았다. <br>
+같은 이미지인데도 webp로 변환한 파일은 그 용량이 고작 9.4KB밖에 되지 않았다.
 
-메인 페이지에서 보여주는 이미지를 webp로 변경하자 TBT도 절반 가량 줄어들었다! 두둥.. <br><br>
-
+메인 페이지에서 보여주는 이미지를 webp로 변경하자 TBT도 절반 가량 줄어들었다! 두둥..
 ![tbt](/assets/images/tbt-improved-2022-10-29.png)
 
 <br><br>
@@ -89,13 +87,13 @@ FID 메트릭에도 유의미한 변화가 있었다.
 다행히도(?) 비디오는 페이지 하단쯤에 보여지므로 웹 사이트에 처음 접근했을때 뷰포트에서는 보여지지 않기 때문에 뷰포트에 관여하는 LCP, CLS과 같은 메트릭 평가에서는 벗어날 수 있었다. <br>
 
 하지만, 비디오가 완전히 로드되고 보여지기까지 오랜 시간이 걸린다면 사용자에게 나이스한 경험을 제공하기 어렵기 때문에 개선해야겠다고 생각했다. <br>
-webm의 브라우저 호환성은 아래와 같다. <br>
+webm의 브라우저 호환성은 아래와 같다.
 
 [can i use?](https://caniuse.com/?search=webm)
 
 
-> 이외에 비디오 파일의 최적화는 아래 문서를 참고하실 수 있습니다!
-[애니메이션 GIF를 비디오로 대체하여 페이지를 더 빠르게 로드](https://web.dev/replace-gifs-with-videos/)
+비디오 파일의 최적화는 아래 문서를 참고하실 수 있습니다!
+> [애니메이션 GIF를 비디오로 대체하여 페이지를 더 빠르게 로드](https://web.dev/replace-gifs-with-videos/)
 
 
 결과는 아주 아주 놀라웠다! <br>
