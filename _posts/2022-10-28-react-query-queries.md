@@ -39,6 +39,45 @@ React Query를 접하면서 꽤나 생소하게 느껴졌던 점이 서버 상�
 
 리액트 쿼리는 위와 같은 이슈를 해결하고자 한다. <br>
 
+## Important Defaults
+리액트 쿼리를 사용하기 전에 기본적으로 이해해야할 개념은 아래와 같다. <br>
+
+- `useQuery` 나 `useInfiniteQuery`를 통한 쿼리 인스턴스는 기본적으로 캐시된 데이터를 오래된 것으로 간주한다.
+즉, 쿼리가 마운트될때마다 서버에 새로운 요청을 보낼 수 있다. (이렇게 되면 리액트 쿼리의 캐싱 처리 이점을 제대로 사용하지 못할 수 있겠다.) <br><br>
+
+
+- `staleTime` 옵션을 사용하여 전역 및 쿼리별로 쿼리의 구성을 변경할 수 있다. <br> 더 긴 `staleTime`을 지정하면 쿼리가 데이터를 자주 가져오는 것을 방지할 수 있다. <br><br>
+
+
+- 오래된 쿼리는 아래와 같은 상황일때 백그라운드에서 자동으로 refetch 된다.
+  - 쿼리 마운트의 새로운 인스턴스
+  - 윈도우가 다른 곳을 갔다가 다시 화면으로 돌아와서 refocusing 되었을때
+  - 네크워크가 재연결되었때
+  - refetch interval 로 쿼리를 구성했을때
+
+<br>
+
+
+- 예상하지 못한 refetch가 발생했다면 리액트 쿼리가 `refetchOnWindowFocus`를 수행하고 있기 때문일 수 있다. <br>
+개발 중에는 특히 브라우저 DevTools와 앱 사이에 초점을 맞추면 데이더 fetch가 발생하기 때문이다. <br>
+  - 이러한 기능을 변경하기 위해 `refetchOnMount`, `refetchOnWindowFocus`, `refetchOnReconnect`, `refetchInterval` 옵션을 변경할 수 있다. <br><br>
+
+
+- `useQuery`, `useInfiniteQuery` 또는 query observer의 활성 인스턴스가 더 이상 없는 쿼리 결과는 "inactive"으로 레이블이 지정되고 나중에 다시 사용할 경우를 대비하여 캐시에 남아있다. <br> <br>
+
+
+- 기본적으로 'inactive'된 쿼리는 5분 이내에 가비지 컬렉터에 의해 수거된다. 
+  - 이를 변경하기 위해 `cacheTime` 옵션을 `1000 * 60 * 5` 밀리초가 아닌 다른 값으로 지정할 수 있다. <br><br>
+
+
+- 실패된 쿼리는 3회 재요청이 되는데 UI에 오류를 캡쳐하고 보여주기 전에 exponential backoff delay(요청을 기하급수적으로 재시도하여 재시도 사이의 대기 시간을 최대 백오프 시간까지 늘림)가 발생한다
+  - `retry`, `retryDelay` 옵션을 변경하여 기본값과 다르게 커스텀하게 설정할 수 있다. <br><br>
+
+
+- 기본적으로 쿼리 결과는 구조적으로 공유되어 데이터가 실제로 변경되었는지 감지하고 변경되지 않은 경우 데이터 참조가 변경되지 않은 상태로 유지되어 useMemo 및 useCallback과 관련된 값 안정화에 더 도움이 된다.
+
+<br>
+
 이제 리액트 쿼리 설치 방법부터 사용 방법을 차근차근 알아보겠다.
 
 ## Installation: 리액트 쿼리 설치하기
@@ -183,5 +222,8 @@ Background refetches (브라우저가 캐시에 대한 데이터를 재요청하
 다음으로는 쿼리 키에 대해 알아보겠다!
 
 ---
-참고
-[React Query](https://tanstack.com/query/v4)
+참고 <br>
+[Overview](https://tanstack.com/query/v4/docs/overview) <br>
+[Installation](https://tanstack.com/query/v4/docs/installation) <br>
+[Queries](https://tanstack.com/query/v4/docs/guides/queries) <br>
+[Important Defaults](https://tanstack.com/query/v4/docs/guides/important-defaults)
