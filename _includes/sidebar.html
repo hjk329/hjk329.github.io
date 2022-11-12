@@ -18,7 +18,9 @@
 
     <!-- 사이드바에 카테고리 추가하기 -->
     <div class="sidebar__categories">
-      <div class="sidebar-nav-item">Categories</div>
+      <div class="sidebar-nav-item">
+        <a href="{{ root_url }}/{{ site.category_dir }}"> Categories </a>
+        </div>
       <nav class="content-ul">
         {% for category in site.categories %}
         <a href="{{ root_url }}/{{ site.category_dir }}#{{ category | first| slugify  }}"
@@ -33,7 +35,9 @@
     </div>
     <!-- 사이드바에 태그 추가하기 -->
     <div class="sidebar__tags">
-      <div class="sidebar-nav-item">Tags</div>
+      <div class="sidebar-nav-item">
+        <a href="{{ root_url }}/{{ site.tag_dir }}"> Tags </a>
+      </div>
       <div class="tags-cloud">
         <div>
           {% assign first = site.tags.first %}
