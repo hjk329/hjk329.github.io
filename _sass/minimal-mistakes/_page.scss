@@ -73,11 +73,12 @@ body {
   font-size: 36px;
   margin-top: 1em;
   margin-bottom: 2em;
+  line-height: 50px;
+
 
   a {
     color: $text-color;
     text-decoration: none;
-    line-height: 30px;
   }
 
   & + .page__meta {
