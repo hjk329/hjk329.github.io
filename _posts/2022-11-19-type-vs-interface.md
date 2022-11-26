@@ -1,5 +1,5 @@
 ---
-title:  "Type과 Interface의 차이점: OCP(Open Closed Principle)"
+title:  "타입과 인터페이스의 차이점: OCP(Open Closed Principle)"
 categories: 
   - Typescript
 tags:
@@ -26,5 +26,10 @@ published: false
 1. OCP(Open Closed Principle, 개방 폐쇄 원칙)
 확장의 측면에서 봤을때 인터페이스에서는 OCP를 적용할 수 있다.  
 
-> OCP란?
+> OCP란?    
+
+로버트 마틴이 명명한 객체 지향 설계의 5대 원칙 중 하나이다.  
+개방-폐쇄 원칙(OCP, Open-Closed Principle)은 '소프트웨어 개체(클래스, 모듈, 함수 등등)는 확장에 대해 열려 있어야 하고, 수정에 대해서는 닫혀 있어야 한다'는 프로그래밍 원칙이다.  
+참고: [개방-폐쇄 원칙](https://ko.wikipedia.org/wiki/%EA%B0%9C%EB%B0%A9-%ED%8F%90%EC%87%84_%EC%9B%90%EC%B9%99)
+개방-폐쇄 원칙이 잘 지켜지면 기존의 코드를 수정하지 않고 새로운 기능을 추가할 수 있다.
 
