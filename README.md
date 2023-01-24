@@ -3,4 +3,7 @@
 열심히 공부한 내용을 저만의 언어로 정리하고 싶어서 블로그를 운영하고 있습니다 !! <br><br>
 
 
-This blog is a place where I can thoroughly explore ***“Why questions”*** on software development.
+Hello World :)  
+I'm Korea based software engineer, primarily working on frontend development using Javascript, Typescript, Next.js, React.js, CSS3, and HTML5.  
+I believe having WHY questions is quite important to be a successful software engineer.  
+This blog is a place to explore those ***"why questions"*** thoroughly.
