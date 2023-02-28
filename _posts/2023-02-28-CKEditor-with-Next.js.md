@@ -56,3 +56,182 @@ CKEditor는 홈페이지에서 강조하는 것처럼 리치한 에디터이다.
 
 또한, `Snyk Open Source Advisor`에서 확인한 종합 점수도 꽤 괜찮은 편이라서 어느 정도 검증받은 라이브러리라고 생각했다.  
 [snyk Advisor: CKEditor5](https://snyk.io/advisor/npm-package/ckeditor5)  
+
+
+## 이슈 1: Global CSS cannot be imported from within node_modules.
+
+(두괄식 커뮤니케이션이 좋다고 해서 이제 정말 시작을 해볼게요 😇)
+
+CKEditor는 Next.js를 공식적으로 지원하고 있지는 않다.  
+만약 npm으로 CKEditor 패키지를 설치하고, 플러그인을 사용하려고 하면 이런 이슈가 발생할 수 있다.  
+
+(나는 구분선을 추가하기 위해 `@ckeditor/ckeditor5-horizontal-line` 라는 패키지를 설치하고, 임포트하기만 했는데도 이러한 이슈가 발생했다.)
+
+`Global CSS cannot be imported from within node_modules.`  
+
+![image](https://user-images.githubusercontent.com/84058944/221815221-f85ff9a3-542e-4cf2-85df-d9ff5890f964.png)  
+
+
+[`Read more`](https://nextjs.org/docs/messages/css-npm) 를 클릭해보면 메인테이너에게 요청해보라는 해결책중 하나로 제시된다 ㄴㅇㄱ (대충 '상상도 못한' 짤을 형상화)  
+
+
+<br><br>
+
+해당 이슈는 Next.js 레포에도 버그로 리프팅이 되어있다: 
+[Global CSS cannot be imported from within node_modules.](https://github.com/vercel/next.js/issues/19936#issue-758781682)  
+
+**Next.js는 node_modules를 더 이상 컴파일하지 않기 때문에 node_modules에서 전역 css 코드를 가져올 수 없다는 것이 메인테이너의 답변이었다.**  
+
+<br>
+
+가장 최근에 업데이트된 답변은 Next.js 버전 13의 릴리즈와 함께 `app` 디렉토리를 사용하는 것이었다: 
+[이슈 관련 메인테이너의 최신 업데이트](https://github.com/vercel/next.js/discussions/27953#discussioncomment-3978605)  
+
+<br>
+
+
+`app` 디렉토리는 베타 버전인데다가 우리 프로젝트는 아직 Next.js를 버전 13으로 업그레이드하지 않은 상황이라서 확실한 해결책이 되지는 않았다.  
+
+### 이슈 1 해결: Online Builder를 사용하자
+
+울며 겨자 먹기로 CKEditor의 공식 문서의 React 파트를 다시 한번 찬찬히 살펴 보았다.  
+나에게 필요한건 기본 클래식 에디터에 내가 원하는 툴바 옵션을 추가하는 것이었다. (구분선, 테이블 등등)  
+
+툴바를 커스텀하기 위해서 [Online Builder(이하 온라인 빌더)](https://ckeditor.com/ckeditor-5/online-builder/)를 사용할 수 있다는 것을 확인했다.  
+내가 원하는 플러그인을 모두 선택한 후에 패키지를 npm으로 설치하는 것이 아니라, zip파일을 직접 다운로드하고 프로젝트로 옮겨서 설치하는 방식이었다.  
+
+나는 아주 의욕적으로(복선) 거의 모든 옵션을 선택한 채로 zip 파일을 내려 받았다. 😶‍🌫️  
+
+그리고, 새로운 이슈를 만났다.  
+
+## 이슈 2: `yarn add` 가 되지 않는다!
+CKEditor의 공식 문서에 따라서 진행했다.  
+
+1. 내려 받은 폴더를 `src`와 같은 위계상에 둔다.  
+
+예시 이미지: <img width="259" alt="image" src="https://user-images.githubusercontent.com/84058944/221824618-25298b39-1b63-46ce-8198-efe7ee41f4b4.png">
+
+<br>
+
+2. 다운받은 패키지를 `yarn add` 명령어로 프로젝트의 종속성으로 추가한다.  
+
+공식 문서에서는 아래와 같이 `상대 경로`를 알려준다.  
+
+```
+yarn add file:./ckeditor5
+``` 
+
+터미널에 그대로 복붙한 결과는 아래와 같았다.  
+
+![image](https://user-images.githubusercontent.com/84058944/221827163-5ebe2e4d-7ced-44e3-87c3-a6af983ef0b9.png)  
+
+😇
+
+저 상태에서 터미널에 `cd ./ckeditor5` 를 입력하면 해당 폴더로 정상적으로 이동되었다.  
+뭐가 문제인지 한참 고민했었다.  
+
+### 이슈 2 해결: 절대 경로로 설치하기
+팀원분께서 절대 경로로 설치해보라고 알려주셨다!  
+`pwd` 명령어로 현재 작업중인 디렉토리의 경로를 알아낸 후 뒤에 `ckeditor5`를 붙여주었다.  
+
+```
+yarn add pwd로 알아낸 절대 경로/ckeditor5
+```
+
+요렇게 하니까 드디어 설치가 되었다 두둥 ... !!  
+
+이 이후에는 `yarn add file:./ckeditor5`, `yarn add ./ckeditor5` 를 실행했을 때도 정상적으로 설치되었다.  
+
+(혹시 빌드 파일 다운로드 이후에 저처럼 설치에서 막히셨던 분들 꼬옥 절대 경로로 시도해보세요!)
+
+그리고 에디터를 임포트하면서 타입스크립트 관련 새로운 이슈를 맞닥뜨렸다.  
+
+## 이슈 3: 설치된 파일이 있는데 파일이 없었습니다
+야심차게 에디터 관련 코드를 임포트했다.  
+
+```
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+```
+
+바로 TS 컴파일 오류가 발생했다.    
+
+`TS7016: Could not find a declaration file for module '@ckeditor/ckeditor5-react'. '작업 경로/.yarn/unplugged/@ckeditor-ckeditor5-react-virtual-bd87788f77/node_modules/@ckeditor/ckeditor5-react/dist/ckeditor.js' implicitly has an 'any' type.   Try `npm i --save-dev @types/ckeditor__ckeditor5-react` if it exists or add a new declaration (.d.ts) file containing `declare module '@ckeditor/ckeditor5-react';`  
+
+
+우여곡절 끝에 파일을 설치해주었는데, 해당 모듈을 찾지 못하는 것 같았다. 🤦🏻‍♀️  
+(CKEditor5에서 타입스크립트를 공식적으로 지원하지 않아서 발생하는 이슈같다.)  
+
+### 이슈 3 해결: `declare module`
+
+그치만 친절하게 해결책도 알려주었다.  
+`if it exists or add a new declaration (.d.ts) file containing `declare module '@ckeditor/ckeditor5-react'`   
+
+
+
+CKEditor5 레포에서도 이와 같은 방법이 제안되었다: [react, typescript, ckeditor-duplicated-modules](https://github.com/ckeditor/ckeditor5-react/issues/140#issuecomment-655453105)  
+
+요렇게 해주면 된다!
+<img width="876" alt="image" src="https://user-images.githubusercontent.com/84058944/221833001-5264284b-235f-44bc-bd0b-0a1604551cd3.png">
+
+<br>
+
+그랬더니 TS 오류가 말끔히 사라졌다!  
+
+## 이슈 4: 빌드 파일이 정상적으로 실행되지 않는다.  
+
+이젠 에디터 구경이라도 할 수 있을 줄 알고 희망차게 에디터를 리턴하는 코드를 작성하고, 로컬 환경에서 실행해보았다.  
+
+예시 코드
+```
+// 에디터가 SSR을 지원하지 않기 때문에 `dynamic import`의 옵션을 `ssr:false`로 설정한다.  
+// 서버 사이드에서 해당 모듈이 포함되지 않도록 하기 위함이다.  
+
+import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
+
+
+const Test = ({setValue}) => {
+    const DynamicEditor = dynamic(() => import('../components/EditorTest'), {
+        ssr: false,
+      });
+
+    const [isEditorReady, setIsEditorReady] = useState(false);
+
+    useEffect(() => {
+      setIsEditorReady(true)
+    }, [])
+    
+    return (
+
+        <>
+        {isEditorReady? <DynamicEditor isEditorReady={isEditorReady}/> : <p>로딩중입니다...</p>}
+        </>
+   )
+}
+
+export default Test;
+```
+
+
+
+
+```
+// 바로 아래 라인을 봐주세요! 여기에서 `yarn` 명령어로 설치한 에디터를 임포트하시면 됩니다!
+import Editor from 'ckeditor5-custom-build/build/ckeditor';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+
+
+const EditorTest = ({isEditorReady}) => {
+    return (
+
+        <>
+      {isEditorReady &&  <CKEditor
+            data={'test'}
+            editor={Editor}
+          /> }
+        </>
+   )
+}
+
+export default EditorTest;
+```
