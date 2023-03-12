@@ -56,8 +56,13 @@
     font-weight: 600;
 }
 
-.tags__cloud {
+.tags-cloud {
   display: block;
+  @media screen and (max-width: 1024px) {
+    max-height: 100px;
+    overflow-y: scroll
+  }
+ 
 }
 }
 
