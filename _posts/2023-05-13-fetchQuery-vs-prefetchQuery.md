@@ -97,6 +97,10 @@ function Posts() {
 
 즉, 데이터가 제대로 프리 패칭이 되었다면 위에 적은 대로 콘솔에 찍힌다.  
 
+예시 화면)
+![state](https://github.com/hjk329/hjk329.github.io/assets/84058944/2ea8e6b0-2547-422a-9cd4-26c0cda92c8d)
+
+
 # 그래서 fetchQuery 랑 prefetchQuery 는 무엇이 다를까?
 
 위 예제에서는 `prefetchQuery` 메소드를 사용해서 데이터를 프리 패칭했다.  
