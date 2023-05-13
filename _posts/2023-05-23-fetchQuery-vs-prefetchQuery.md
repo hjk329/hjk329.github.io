@@ -115,4 +115,10 @@ function Posts() {
 자세한 내용은 공식 문서를 확인해 주세요!  
 https://tanstack.com/query/v4/docs/react/reference/QueryClient#queryclientfetchquery  
 
-그럼 이만 (정중하게)
+그럼 이만 (정중하게)  
+![image](https://github.com/hjk329/hjk329.github.io/assets/84058944/0cf6bf31-b557-4441-af23-ee4ad71e6567)  
+
+오늘도 행복 코딩 하세용~
+
+이미지 출처: @namsee.jpg (https://www.instagram.com/namsee.jpg)
+
