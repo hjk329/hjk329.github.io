@@ -3,6 +3,11 @@ title:  "fetchQuery vs prefetchQuery (React-Query 리액트 쿼리)"
 tags:
   - React Query
   - 상태 관리
+  - fetchQuery
+  - prefetchQuery
+  - 프리 패칭
+  - Next.js
+  - SSR
 toc: true
 toc_sticky: true
 toc_label: "🤭 fetchQuery vs prefetchQuery"
