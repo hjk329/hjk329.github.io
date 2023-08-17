@@ -205,10 +205,12 @@ function foo() {
 
 실질적으로 전역 오브젝트에 닿을 수 있는지의 여부를 판단하므로 조금 더 효율적인 알고리즘이라고 할 수 있다.  
 
-[가비지 컬렉션에 대한 자세한 내용은 이 아티클을 참고해 주세요!
+(자바스크립트의 메모리 관리 및 가비지 컬렉션에 대해 아래 아티클을 더 참고하실 수 있습니다 😇 )
+
+[자바스크립트의 메모리 관리
 ](https://developer.mozilla.org/ko/docs/Web/JavaScript/Memory_Management#%EA%B0%80%EB%B9%84%EC%A7%80_%EC%BD%9C%EB%A0%89%EC%85%98)
 
-[자바스크립트의 메모리 관리와 관련하여 이 아티클도 참고하실 수 있습니다 :) 
+[그래서 자바스크립트는 어떻게 쓰레기를 수거하나요?
 ](https://www.hyesungoh.xyz/how-to-collect-garbage-in-js)
 
 <br/>
