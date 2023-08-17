@@ -142,3 +142,25 @@ var copyObjDeep = function(target){
 		return newObj;
 };
 ```
+
+# 🙋🏻‍♀️ 리액트에서 불변성을 강조하는 이유가 뭘까?
+
+불변성이란 한번 생성된 값이 변경되지 않는 것을 의미한다.  
+
+리액트에서는 원시타입 데이터 뿐만 아니라 객체도 불변한 것처럼 다뤄야 한다!
+
+> However, although objects in React state are technically mutable, you should treat them as if they were immutable—like numbers, booleans, and strings. Instead of mutating them, you should always replace them.  
+[https://react.dev/learn/updating-objects-in-state#whats-a-mutation](https://react.dev/learn/updating-objects-in-state#whats-a-mutation)
+
+리액트는 상태를 업데이트할때 얕은 비교를 수행한다.  
+
+이는 데이터가 바라보는 주소값이 동일한지의 여부를 확인하는 것이다.  
+
+> React compares old and new props by shallow equality: that is, it considers whether each new prop is reference-equal to the old prop.  
+[https://react.dev/reference/react/memo#troubleshooting](https://react.dev/reference/react/memo#troubleshooting)
+
+그리고 리액트는 상태가 변경되면 리렌더링한다.  
+
+따라서, 상태에 따라 적절한 UI 를 보여주려면 불변성을 지켜야 한다.  
+
+만약 객체 내부의 프로퍼티 값이 변경됨에 따라서 상태를 업데이트하고 싶은데 가변적인 객체의 상태를 업데이트한다면 얕은 비교를 수행하는 리액트는 상태가 변경되었다고 감지할 수 없기 떄문이다.  
