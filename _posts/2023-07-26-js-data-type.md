@@ -16,7 +16,6 @@ toc: true
 toc_sticky: true
 toc_label: "자바스크립트의 데이터 타입"
 share: true
-published: false
 
 ---
 
