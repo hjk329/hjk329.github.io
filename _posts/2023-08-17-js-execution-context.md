@@ -15,10 +15,9 @@ toc: true
 toc_sticky: true
 toc_label: "자바스크립트의 실행 컨텍스트"
 share: true
-published: false
 ---
 
-정재남 님의 코어 자바스크립트 2장 실행 컨텍스트를 읽고 정리한 글입니다.  
+📖 F-Lab 프론트엔드 멘토링을 통해 정재남 님의 코어 자바스크립트 2장 실행 컨텍스트를 읽고 정리한 글입니다.  
 
 # 실행 컨텍스트란
 
@@ -65,3 +64,54 @@ VariableEnvironment 와 LexicalEnvironment 모두 현재 컨텍스트 내의 식
 - var 키워드로 선언한 식별자는 선언과 동시에 undefined 로 초기화된다.
 - let, const 키워드로 선언한 식별자의 정보도 envorinmentRecord 에 수집되지만, 실제 선언한 위치에 도달하기 전까지는 해당 식별자를 실질적으로 사용할 수 없는 TDZ(Temporarily Dead Zone) 이 발생한다.
 - 함수 선언문은 함수 표현식과 다르게 선언문 전체가 호이스팅된다. 만약 같은 컨텍스트에서 같은 이름으로 함수 선언문을 작성하고, 선언부 이전에 호출한다면 코드는 동작하는데 내가 짠 함수는 아닌.. 그런 디버깅을 어렵게 하는 상황이 있을 수 있으니 함수 표현식을 사용하는게 보다 안전하겠다!
+
+
+# 스코프 체이닝과 outerEnvironmentReference
+
+자바스크립트 엔진이 function 키워드를 만나서 함수 인스턴스를 만들때 함수가 선언된 위치 (시점) 에서 참조할 수 있는 외부 스코프의 식별자 정보를 [[Scopes]] 라는 내부 슬롯에 수집한다. 이때 설정된 스코프는 변경되지 않는다.  
+
+이를 정적 스코핑이라고 한다.  
+
+> 정적 스코핑: 변수가 선언된 위치에 따라 그 범위가 결정되는 방식, 렉시컬 스코핑(Lexical Scoping) 이라고도 한다.
+
+![image](https://github.com/hjk329/hjk329.github.io/assets/84058944/8a8ea47b-c03a-43ea-bab3-c711fe3d4127)
+
+
+그리고 이는 LexicalEnvironment의 outerEnvironmentRecord 에 저장된다.  
+
+즉, 함수 내부 스코프에서 바로 직전 스코프의 LexicalEnvironment 를 참조할 수 있게 된다. 
+
+```js
+let globalVar = '전역 변수';
+
+function outerFunc() {
+    let outerVar = '외부 함수 변수';
+    
+    function innerFunction() {
+        let innerVar = '내부 함수 변수';
+
+        console.log(innerVar);  // 내부 함수 변수
+        console.log(outerVar);  // 외부 함수 변수
+        console.log(globalVar); // 전역 변수
+    }
+    
+    innerFunction();
+}
+
+outerFunc();
+```
+
+이처럼 스코프를 안에서부터 바깥으로 차례로 검색해가는 것을 스코프 체인이라고 한다.  
+
+스코프 체이닝을 잘 이해하면 클로저의 개념도 자연스레 해결된다!  
+
+클로저는 외부 함수가 종료되었음에도 내부 함수에서 외부함수에 선언된 변수를 여전히 참조할 수 있는 현상이다.  
+
+이는 함수가 선언될 당시에 내부 슬롯 [[Scopes]] 에 해당 함수가 참조할 수 있는 변수의 렉시컬 환경 정보가 저장되는 것이기 때문이다.  
+
+(그럼 이만 총총총 ..)
+
+<img width="200" alt="스크린샷 2023-09-02 오전 12 12 42" src="https://github.com/hjk329/hjk329.github.io/assets/84058944/8d26095c-07e1-470e-9c37-5f0a345935ef">   
+
+이미지 출처: [@namsee.jpg](https://www.instagram.com/p/CsDYlY8vGCo/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==)
+
