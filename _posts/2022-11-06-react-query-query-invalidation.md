@@ -12,23 +12,36 @@ share: true
 
 ---
 
-## Query Invalidation
+# Query Invalidation
 
-리액트 쿼리는 서버 데이터가 오래되었다는 사실을 어떻게 파악할 것인지, 오래되었다는 것을 알았다면 언제 업데이트해줄 것인지 등의 이슈를 해결하려 한다. <br>
-이를 위해 QueryClient에는 쿼리를 오래된 것으로 표시하고, 잠재적으로 다시 가져올 수 있는 invalidateQueries 메서드를 제공한다. <br>
+리액트 쿼리는 서버 데이터가 오래되었다는 사실을 어떻게 파악할 것인지, 오래되었다는 것을 알았다면 언제 업데이트해줄 것인지 등의 문제를 해결하려 한다. <br>
+이를 위해 `QueryClient`에는 쿼리를 오래된 것으로 표시하여 잠재적으로 데이터를 다시 가져올 수 있는 `invalidateQueries` 메서드를 제공한다. <br>
 
 ```javascript
 // 캐시의 모든 쿼리를 무효화함
-queryClient.invalidateQueries()
+queryClient.invalidateQueries();
+
+
 // `todos`로 시작하는 키로 모든 쿼리를 무효화함
-queryClient.invalidateQueries({ queryKey: ['todos'] })
+queryClient.invalidateQueries({ queryKey: ['todos'] });
 ```
 <br>
 
 쿼리가 `invalidateQueries` 메서드로 무효화될때 다음과 같은 두 가지 상황이 발생한다.
 - 쿼리가 오래된 것으로 표시된다. 오래된 상태는 `useQuery` 또는 관련 훅에서 사용 중인 모든 `staleTime` 구성에 오버라이드한다.
-- 만약 `useQuery` 나 관련 훅을 통해 쿼리가 렌더링되고 있다면 백그라운드에서도 refetch한다.
-<br>
+- 만약 `useQuery` 나 관련 훅을 통해 쿼리가 렌더링되고 있다면 백그라운드에서도 `refetch`한다.
+
+## `refetch` 와 `invalidateQueries` 는 뭐가 다를까?
+
+`refetch` 는 `enabled`  옵션과 상관없이 무조건 `queryFn`을 수행한다.  
+따라서 `enabled` 옵션을 고려하는 `invalidateQueries` 가 조금 더 스마트한 리패치 방식이다.  
+
+
+***하지만,*** `invalidateQueries` 는 `data` 가 있는 컴포넌트를 볼때만 리패치를 수행하므로, 백그라운드 리패치를 통해서 조금 더 매끄러운 UI 를 제공하려면 `refetch` 를 사용할 수 있겠다.  
+
+> 참고: [refetch vs invalidating query #2468](https://github.com/TanStack/query/discussions/2468)
+
+
 
 ### invalidateQueries 을 사용해서 쿼리 매칭시키기
 `invalidateQueries` 및 `removeQueries`와 같은 API를 사용할 때 프리픽스로 여러 쿼리를 일치시키거나 매우 구체적이고 정확한 쿼리를 일치시킬 수 있다. <br>
