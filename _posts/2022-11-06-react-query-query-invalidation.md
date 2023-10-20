@@ -42,8 +42,11 @@ queryClient.invalidateQueries({ queryKey: ['todos'] });
 > 참고: [refetch vs invalidating query #2468](https://github.com/TanStack/query/discussions/2468)
 
 
+<br/>
 
-### invalidateQueries 을 사용해서 쿼리 매칭시키기
+
+
+## invalidateQueries 을 사용해서 쿼리 매칭시키기
 `invalidateQueries` 및 `removeQueries`와 같은 API를 사용할 때 프리픽스로 여러 쿼리를 일치시키거나 매우 구체적이고 정확한 쿼리를 일치시킬 수 있다. <br>
 예를 들어, todo 프리픽스를 사용하여 쿼리 키에서 todos로 시작하는 모든 쿼리를 무효화할 수 있다.
 
