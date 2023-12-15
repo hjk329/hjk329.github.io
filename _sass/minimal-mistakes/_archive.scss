@@ -20,6 +20,7 @@
 
 .archive__item {
   position: relative;
+  padding: 4% 0;
 
   a {
     position: relative;
@@ -34,7 +35,7 @@
 .archive__subtitle {
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
-  font-size: 18px;
+  font-size: 1rem;
   color: #3b3f4e;
   border-bottom: 1px solid $border-color;
 
@@ -44,15 +45,16 @@
 }
 
 .archive__item-title {
-  font-size: 18px;
-  margin-bottom: 0.25em;
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  margin-top: 0;
+  font-weight: 600;
   font-family: $sans-serif-narrow;
-  line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
 
   a[rel="permalink"]::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -63,12 +65,15 @@
   a + a {
     opacity: 0.5;
   }
+
+  p {
+    margin: 0;
+  }
 }
 
 /* remove border*/
 .page__content {
   .archive__item-title {
-    margin-top: 1em;
     border-bottom: none;
   }
 }
@@ -76,7 +81,7 @@
 .archive__item-excerpt {
   margin-top: 0;
   margin-bottom: 4px;
-  font-size: 12px;
+  font-size: 0.7rem;
 
   & + p {
     text-indent: 0;
@@ -288,7 +293,7 @@
   }
 
   a.btn::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -314,7 +319,7 @@
     }
 
     a.btn::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -355,7 +360,7 @@
     }
 
     a.btn::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -399,7 +404,7 @@
     }
 
     a.btn::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -445,7 +450,7 @@
    Wide Pages
    ========================================================================== */
 
-  .wide {
+.wide {
   .archive {
     @include breakpoint($large) {
       padding-right: 0;
@@ -460,7 +465,7 @@
 /* Place inside a single layout */
 
 .layout--single {
-	.feature__wrapper {
-		display: inline-block;
-	}
+  .feature__wrapper {
+    display: inline-block;
+  }
 }
