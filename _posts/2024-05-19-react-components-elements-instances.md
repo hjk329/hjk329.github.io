@@ -1,5 +1,7 @@
 ---
 title: "React Components, Elements, and Instances"
+categories:
+  - React
 tags:
   - React
   - React Components
