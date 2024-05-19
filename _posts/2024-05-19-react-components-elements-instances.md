@@ -182,9 +182,9 @@ const DeleteAccount = () => (
 
 이러한 혼합과 매칭은 컴포넌트가 서로 독립적으로 유지되도록 도와줍니다. 이들은 오직 컴포지션을 통해서만 'is-a'와 'has-a' 관계를 표현할 수 있습니다.
 
-- Button은 특정 속성을 가진 DOM <button>입니다.
+- Button은 특정 속성을 가진 DOM `<button>`입니다.
 - DangerButton은 특정 속성을 가진 Button입니다.
-- DeleteAccount는 <div> 안에 Button과 DangerButton을 포함합니다.
+- DeleteAccount는 `<div>` 안에 Button과 DangerButton을 포함합니다.
 
 이처럼 리액트에서는 컴포넌트를 정의하고 사용하는 방식이 매우 유연합니다.  
 컴포넌트는 다른 컴포넌트를 포함할 수 있고, 이렇게 함으로써 재사용성과 유지보수성을 높일 수 있습니다.
