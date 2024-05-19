@@ -125,7 +125,7 @@ class Form extends TraditionalObjectOrientedView {
 
 앞서 살펴본 DOM 노드를 설명하는 엘리먼트처럼 컴포넌트를 설명하는 엘리먼트도 엘리먼트입니다. 이들은 서로 중첩되거나 섞일 수 있습니다. 이것이 리액트의 핵심 아이디어입니다.
 
-이 기능을 통해 Button이 DOM <button>으로 렌더링되는지, <div>로 렌더링되는지, 또는 완전히 다른 것으로 렌더링되는지에 대해 신경 쓰지 않고 특정 색상 속성 값을 가진 Button으로 DangerButton 컴포넌트를 정의할 수 있습니다
+이 기능을 통해 Button이 DOM `<button>`으로 렌더링되는지, `<div>`로 렌더링되는지, 또는 완전히 다른 것으로 렌더링되는지에 대해 신경 쓰지 않고 특정 색상 속성 값을 가진 Button으로 DangerButton 컴포넌트를 정의할 수 있습니다
 
 ```js
 const DangerButton = ({ children }) => ({
