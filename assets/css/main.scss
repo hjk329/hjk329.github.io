@@ -4,7 +4,7 @@ search: false
 ---
 
 @charset "utf-8";
-@import "minimal-mistakes/skins/yellow";
+// @import "minimal-mistakes/skins/yellow";
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
 @import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
